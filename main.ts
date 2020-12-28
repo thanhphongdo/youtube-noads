@@ -1,6 +1,7 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import { MainServer } from './server/main';
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
@@ -10,6 +11,7 @@ function createWindow(): BrowserWindow {
 
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
+  const server = new MainServer();
 
   // Create the browser window.
   win = new BrowserWindow({
@@ -21,7 +23,7 @@ function createWindow(): BrowserWindow {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve) ? true : false,
       contextIsolation: false,  // false if you want to run 2e2 test with Spectron
-      enableRemoteModule : true // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
+      enableRemoteModule: true // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
     },
   });
 
@@ -35,6 +37,7 @@ function createWindow(): BrowserWindow {
     win.loadURL('http://localhost:4200');
 
   } else {
+    server.startServer();
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
       protocol: 'file:',
