@@ -1,7 +1,7 @@
 import * as http from 'http';
 import * as express from 'express';
-// import * as cors from 'cors';
-import { ExampleApi } from './apis';
+import * as cors from 'cors';
+import { ExampleApi, YoutubeApi } from './apis';
 
 export class MainServer {
 
@@ -13,7 +13,7 @@ export class MainServer {
         this.app = express();
         this.router = express.Router();
 
-        // this.app.use(cors());
+        this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: false }));
     }
@@ -26,6 +26,7 @@ export class MainServer {
 
     addRouter() {
         new ExampleApi(this.router);
+        new YoutubeApi(this.router);
         this.app.use('/', this.router);
     }
 }
