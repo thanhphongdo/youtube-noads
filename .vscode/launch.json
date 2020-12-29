@@ -5,6 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach Server",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
             "name": "Electron Main Renderer",
             "type": "node",
             "request": "launch",
@@ -21,7 +30,8 @@
             "windows": {
                 "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
             }
-        }, {
+        },
+        {
             "name": "Karma Attach Chrome",
             "type": "chrome",
             "request": "attach",
@@ -31,6 +41,5 @@
             "timeout": 30000,
             "trace": true
         }
-        
     ]
 }

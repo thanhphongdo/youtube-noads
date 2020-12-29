@@ -2,9 +2,9 @@
     "compilerOptions": {
         "module": "commonjs",
         "noImplicitAny": true,
-        "inlineSourceMap": true,
+        "sourceMap": true,
         "inlineSources": true,
-        "outDir": "src/main/",
+        "outDir": "build",
         "baseUrl": ".",
         "paths": {
             "*": [
@@ -13,6 +13,9 @@
         }
     },
     "include": [
-        "src/**/*"
+        "../server/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }
