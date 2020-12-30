@@ -20,9 +20,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/fomantic-ui/dist/semantic.min.css",
+              "src/assets/tailwindcss/dist/tailwind.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/fomantic-ui/dist/semantic.min.js"
+            ],
             "customWebpackConfig": {
               "path": "./angular.webpack.js"
             }
