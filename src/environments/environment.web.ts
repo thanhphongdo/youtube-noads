@@ -1,4 +1,5 @@
 export const AppConfig = {
   production: false,
-  environment: 'WEB'
+  environment: 'WEB',
+  localApiHost: 'http://localhost:27210'
 };
