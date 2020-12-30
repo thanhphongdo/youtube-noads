@@ -17,6 +17,24 @@ var HttpService = /** @class */ (function () {
             headers: headers
         });
     };
+    HttpService.prototype.makeQueryString = function (query) {
+        return Object.keys(query || {})
+            .map(function (key) { return key + "=" + encodeURIComponent(query[key]); })
+            .join('&');
+    };
+    HttpService.prototype.request = function (method, url, data, headers) {
+        var config = {
+            method: method,
+            url: url
+        };
+        if (data) {
+            config.data = JSON.stringify(data);
+        }
+        if (headers) {
+            config.headers = headers;
+        }
+        return axios["default"](config);
+    };
     return HttpService;
 }());
 exports.HttpService = HttpService;
