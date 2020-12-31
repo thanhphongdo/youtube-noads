@@ -104,6 +104,7 @@ i.link.icon:not(.disabled),
 i.link.icons:not(.disabled) {
   cursor: pointer;
   opacity: 0.8;
+  -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
 i.link.icon:hover,
@@ -119,13 +120,15 @@ i.circular.icon {
   border-radius: 500em !important;
   line-height: 1 !important;
   padding: 0.5em 0 !important;
-  box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
   width: 2em !important;
   height: 2em !important;
 }
 i.circular.inverted.icon {
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*-------------------
@@ -134,10 +137,12 @@ i.circular.inverted.icon {
 
 i.flipped.icon,
 i.horizontally.flipped.icon {
-  transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
 }
 i.vertically.flipped.icon {
-  transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
 }
 
 /*-------------------
@@ -147,14 +152,17 @@ i.vertically.flipped.icon {
 i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 i.left.rotated.icon,
 i.counterclockwise.rotated.icon {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 i.halfway.rotated.icon {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 /*--------------------------
@@ -164,26 +172,32 @@ i.halfway.rotated.icon {
 i.rotated.flipped.icon,
 i.right.rotated.flipped.icon,
 i.clockwise.rotated.flipped.icon {
-  transform: scale(-1, 1) rotate(90deg);
+  -webkit-transform: scale(-1, 1) rotate(90deg);
+          transform: scale(-1, 1) rotate(90deg);
 }
 i.left.rotated.flipped.icon,
 i.counterclockwise.rotated.flipped.icon {
-  transform: scale(-1, 1) rotate(-90deg);
+  -webkit-transform: scale(-1, 1) rotate(-90deg);
+          transform: scale(-1, 1) rotate(-90deg);
 }
 i.halfway.rotated.flipped.icon {
-  transform: scale(-1, 1) rotate(180deg);
+  -webkit-transform: scale(-1, 1) rotate(180deg);
+          transform: scale(-1, 1) rotate(180deg);
 }
 i.rotated.vertically.flipped.icon,
 i.right.rotated.vertically.flipped.icon,
 i.clockwise.rotated.vertically.flipped.icon {
-  transform: scale(1, -1) rotate(90deg);
+  -webkit-transform: scale(1, -1) rotate(90deg);
+          transform: scale(1, -1) rotate(90deg);
 }
 i.left.rotated.vertically.flipped.icon,
 i.counterclockwise.rotated.vertically.flipped.icon {
-  transform: scale(1, -1) rotate(-90deg);
+  -webkit-transform: scale(1, -1) rotate(-90deg);
+          transform: scale(1, -1) rotate(-90deg);
 }
 i.halfway.rotated.vertically.flipped.icon {
-  transform: scale(1, -1) rotate(180deg);
+  -webkit-transform: scale(1, -1) rotate(180deg);
+          transform: scale(1, -1) rotate(180deg);
 }
 
 /*-------------------
@@ -196,11 +210,13 @@ i.bordered.icon {
   width: 2em;
   height: 2em;
   padding: 0.5em 0 !important;
-  box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.1) inset;
 }
 i.bordered.inverted.icon {
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*-------------------
@@ -447,7 +463,8 @@ i.icons .icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
   margin: 0;
 }
 i.icons .icon:first-child {
@@ -455,7 +472,8 @@ i.icons .icon:first-child {
   width: auto;
   height: auto;
   vertical-align: top;
-  transform: none;
+  -webkit-transform: none;
+          transform: none;
 }
 
 /* Corner Icon */
@@ -464,7 +482,8 @@ i.icons .corner.icon {
   left: auto;
   right: 0;
   bottom: 0;
-  transform: none;
+  -webkit-transform: none;
+          transform: none;
   font-size: 0.45em;
   text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
 }

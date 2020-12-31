@@ -1,0 +1,52 @@
+{
+  "base": "",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "../src/assets/fomantic-ui/dist/",
+      "uncompressed": "../src/assets/fomantic-ui/dist/components/",
+      "compressed": "../src/assets/fomantic-ui/dist/components/",
+      "themes": "../src/assets/fomantic-ui/dist/themes/"
+    },
+    "clean": "../src/assets/fomantic-ui/dist/"
+  },
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "components": [
+    "reset",
+    "site",
+    "button",
+    "calendar",
+    "container",
+    "icon",
+    "image",
+    "input",
+    "label",
+    "loader",
+    "form",
+    "grid",
+    "menu",
+    "message",
+    "table",
+    "accordion",
+    "checkbox",
+    "dimmer",
+    "dropdown",
+    "modal",
+    "nag",
+    "popup",
+    "progress",
+    "search",
+    "tab",
+    "transition",
+    "state",
+    "visibility"
+  ],
+  "version": "2.4.2"
+}

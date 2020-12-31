@@ -23,7 +23,8 @@
   margin: 0;
   text-align: center;
   z-index: 1000;
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
 }
 
 /* Static Shape */
@@ -50,7 +51,8 @@
           animation: loader 0.6s infinite linear;
   border: 0.2em solid #767676;
   border-radius: 500rem;
-  box-shadow: 0 0 0 1px transparent;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+          box-shadow: 0 0 0 1px transparent;
 }
 
 /* Speeds */
@@ -72,12 +74,14 @@
 /* Active Animation */
 @-webkit-keyframes loader {
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @keyframes loader {
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -639,7 +643,8 @@
   margin: 0;
   left: 0;
   top: 0;
-  transform: none;
+  -webkit-transform: none;
+          transform: none;
 }
 .ui.inline.loader.active,
 .ui.inline.loader.visible {
@@ -764,7 +769,8 @@
   100% {
     border-left-color: transparent;
     border-bottom-color: transparent;
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @keyframes elastic-loader {
@@ -791,7 +797,8 @@
   100% {
     border-left-color: transparent;
     border-bottom-color: transparent;
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @-webkit-keyframes currentcolor-elastic-loader {
@@ -818,7 +825,8 @@
   100% {
     border-left-color: transparent;
     border-bottom-color: transparent;
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @keyframes currentcolor-elastic-loader {
@@ -845,7 +853,8 @@
   100% {
     border-left-color: transparent;
     border-bottom-color: transparent;
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
