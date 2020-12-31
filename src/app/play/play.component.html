@@ -8,7 +8,9 @@
   </div>
   <div class="video-container ui centered grid tw-h-full tw-m-0" style="flex: 1; overflow: auto;">
     <div class="sixteen wide mobile fourteen wide computer column tw-flex tw-flex-col tw-h-full">
-      <app-home-video-list></app-home-video-list>
+      <video *ngIf="videos && videos.length" width="100%" controls autoplay>
+        <source [src]="videos[0].url" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>

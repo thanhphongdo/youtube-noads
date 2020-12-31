@@ -1,2 +1,26 @@
+.video-thumbnail {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+}
 
+.owner-thumbnail img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
 
+.video-title {
+    max-height: 40px;
+}
+
+.video-time {
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 3px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}

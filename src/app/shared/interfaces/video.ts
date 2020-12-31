@@ -8,5 +8,14 @@ export interface VideoInterface {
     src?: Array<{
         url: string;
         quality: string;
-    }>
+    }>;
+    owner?: {
+        name: string;
+        thumbnailUrl: string;
+    };
+    info?: {
+        viewCountText: string;
+        timeText: string;
+        title: string;
+    }
 }
