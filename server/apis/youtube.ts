@@ -1,5 +1,7 @@
 import * as express from 'express';
 import * as cheerio from 'cheerio';
+import * as fs from 'fs';
+import * as path from 'path';
 import { BaseApi } from './base';
 
 const apiKey = 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8';
@@ -12,6 +14,7 @@ export class YoutubeApi extends BaseApi {
     constructor(router: express.Router) {
         super(router);
         this.getYoutubeVideo();
+        this.getYoutubeVideoByHtml();
         this.getHomePageData();
         this.getHomePageDataNext();
         this.getSearchFirst();
@@ -26,12 +29,22 @@ export class YoutubeApi extends BaseApi {
                 v: videoId
             }).then(response => {
                 res.json({
-                    data: this.getVideoInfo(response.data)?.streamingData?.adaptiveFormats
+                    data: this.getVideoInfo(response.data)?.streamingData?.adaptiveFormats,
+                    // all: this.getVideoInfo(response.data)
                 });
             }).catch(err => {
                 res.status(400).json({
                     error: err
                 });
+            });
+        });
+    }
+
+    getYoutubeVideoByHtml() {
+        this.router.get('/youtube/file', (req, res, next) => {
+            const data = fs.readFileSync(path.resolve(__dirname, '../../resource/youtube.html'), { encoding: 'utf8', flag: 'r' });
+            res.json({
+                data: this.getVideoInfo(data)?.streamingData?.adaptiveFormats
             });
         });
     }

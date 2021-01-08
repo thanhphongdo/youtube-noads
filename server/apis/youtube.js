@@ -15,6 +15,8 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YoutubeApi = void 0;
 var cheerio = require("cheerio");
+var fs = require("fs");
+var path = require("path");
 var base_1 = require("./base");
 var apiKey = 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8';
 var clientName = '2';
@@ -26,6 +28,7 @@ var YoutubeApi = /** @class */ (function (_super) {
     function YoutubeApi(router) {
         var _this = _super.call(this, router) || this;
         _this.getYoutubeVideo();
+        _this.getYoutubeVideoByHtml();
         _this.getHomePageData();
         _this.getHomePageDataNext();
         _this.getSearchFirst();
@@ -42,12 +45,22 @@ var YoutubeApi = /** @class */ (function (_super) {
             }).then(function (response) {
                 var _a, _b;
                 res.json({
-                    data: (_b = (_a = _this.getVideoInfo(response.data)) === null || _a === void 0 ? void 0 : _a.streamingData) === null || _b === void 0 ? void 0 : _b.adaptiveFormats
+                    data: (_b = (_a = _this.getVideoInfo(response.data)) === null || _a === void 0 ? void 0 : _a.streamingData) === null || _b === void 0 ? void 0 : _b.adaptiveFormats,
                 });
             }).catch(function (err) {
                 res.status(400).json({
                     error: err
                 });
+            });
+        });
+    };
+    YoutubeApi.prototype.getYoutubeVideoByHtml = function () {
+        var _this = this;
+        this.router.get('/youtube/file', function (req, res, next) {
+            var _a, _b;
+            var data = fs.readFileSync(path.resolve(__dirname, '../../resource/youtube.html'), { encoding: 'utf8', flag: 'r' });
+            res.json({
+                data: (_b = (_a = _this.getVideoInfo(data)) === null || _a === void 0 ? void 0 : _a.streamingData) === null || _b === void 0 ? void 0 : _b.adaptiveFormats
             });
         });
     };

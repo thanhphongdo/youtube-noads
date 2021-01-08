@@ -1,7 +1,8 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
+import { mainModule } from 'process';
 import * as url from 'url';
-import { MainServer } from './server/main';
+// import { MainServer } from './server/main';
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
@@ -11,7 +12,7 @@ function createWindow(): BrowserWindow {
 
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
-  const server = new MainServer();
+  // const server = new MainServer();
 
   // Create the browser window.
   win = new BrowserWindow({
@@ -27,23 +28,35 @@ function createWindow(): BrowserWindow {
     },
   });
 
-  if (serve) {
+  // if (serve) {
 
-    win.webContents.openDevTools();
+  //   win.webContents.openDevTools();
 
-    require('electron-reload')(__dirname, {
-      electron: require(`${__dirname}/node_modules/electron`)
-    });
-    win.loadURL('http://localhost:4200');
+  //   require('electron-reload')(__dirname, {
+  //     electron: require(`${__dirname}/node_modules/electron`)
+  //   });
+  //   win.loadURL('http://localhost:4200');
+  // } else {
+  //   server.startServer();
+  //   win.loadURL(url.format({
+  //     pathname: path.join(__dirname, 'dist/index.html'),
+  //     protocol: 'file:',
+  //     slashes: true
+  //   }));
+  // }
 
-  } else {
-    server.startServer();
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/index.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
+  win.webContents.setUserAgent('Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1');
+  win.loadURL('https://m.youtube.com');
+  win.webContents.executeJavaScript(`
+    console.log(1111);
+    setInterval(()=>{
+      var videoTag = document.getElementsByTagName('video')[0];
+      var checkAd = document.getElementsByClassName('video-ads')[0].childElementCount;
+      if(checkAd > 0){
+          videoTag.currentTime = videoTag.duration;
+      }
+    }, 100);
+  `);
 
   // Emitted when the window is closed.
   win.on('closed', () => {
